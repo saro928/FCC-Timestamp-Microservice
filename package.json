@@ -15,7 +15,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "https://githost.com/camper/repo.git"
+		"url": "https://github.com/saro928/FCC-Timestamp-Microservice/"
 	},
 	"keywords": [
 		"node",
