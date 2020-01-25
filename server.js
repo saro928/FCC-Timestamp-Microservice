@@ -23,13 +23,6 @@ app.get("/api/hello", function (req, res) {
   res.json({greeting: 'hello API'});
 });
 
-// Endpoint requested without date_string - Return Current Date
-/*app.get('/api/timestamp/', function(req, res) {
-  let date = new Date();
-  res.json({unix: date.getTime(), utc: date.toUTCString()});
-  console.log("Get current date!");
-});*/
-
 // My endpoint
 app.get("/api/timestamp/:date_string?", function(req, res) {
   // Empty date_string
