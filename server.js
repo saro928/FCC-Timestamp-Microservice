@@ -30,13 +30,14 @@ app.get("/api/timestamp/:date_string", function(req, res) {
   if (/[0-9]{5,}/.test(myDate)) {
     myDate = parseInt(myDate);
     res.json({unix: parseInt(myDate), utc: new Date(myDate).toUTCString()});
-  }
-  
+  } 
   let date = new Date(req.params.date_string);
   console.log(date);
   if (date.toString() === "Invalid Date") {
     res.json({unix: null, utc: "Invalid Date"});
-  }  
+  } else {
+    res.json({unix: date.getTime(), utc: date.toUTCString()});
+  }
 });
 
 // Endpoint requested without date_string - Return Current Date
@@ -44,7 +45,6 @@ app.get('/api/timestamp/', function(req, res) {
   let date = new Date();
   res.json({unix: date.getTime(), utc: date.toUTCString()});
 });
-
 // listen for requests :)
 var listener = app.listen(process.env.PORT, function () {
   console.log('Your app is listening on port ' + listener.address().port);
